@@ -2,7 +2,7 @@ export const makeChange = (money) => {
   if(isNaN(money)){
     return;
   }
-  if (money === 0.00){
+  if (money < 0.01){
     return "";
   } else if (money >= .25){
     const quarters = Math.floor(money / .25);
@@ -11,17 +11,21 @@ export const makeChange = (money) => {
   } else if (money >= .10){
     const dimes = Math.floor(money / .10);
     const dAmount = dimes * .10;
-    return  `the amount of dimes is ${dimes},`.concat(makeChange(money - dAmount));
+    console.log(money - dAmount);
+    return  `, the amount of dimes is ${dimes}`.concat(makeChange(money - dAmount));
   } else if (money >= .05){
     const nickles = Math.floor(money / .05);
     const nAmount = nickles * .05;
-    return `the amount of nickles is ${nickles},`.concat(makeChange(money - nAmount));
+    return `, the amount of nickles is ${nickles}`.concat(makeChange(money - nAmount));
   } else if (money >= .01){
     const pennies = Math.floor(money / .01);
     const pAmount = pennies * .01;
-    return  `the amount of pennies is ${pennies}`;
+    return  `, the amount of pennies is ${pennies}`;
   }
 }
+
+// Expected: "The amount of quarters is 4, the amount of dimes is 1"
+// Received: "The amount of quarters is 4the amount of dimes is 1,undefined"
 
 // const incrementCounter = (counter) => {
 //   // This is the termination condition.
