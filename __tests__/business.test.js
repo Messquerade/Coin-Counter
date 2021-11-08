@@ -16,4 +16,14 @@ describe('makeChange', () => {
     const result = makeChange(1.10);
     expect(result).toEqual("The amount of quarters is 4, the amount of dimes is 1")
   })
+
+  test('Should return the number of quarters, dimes and nickles', () => {
+    const result = makeChange(1.15);
+    expect(result).toEqual("The amount of quarters is 4, the amount of dimes is 1, the amount of nickles is 1");
+  })
+  
+  test('should return the number of quarters, dimes, nickles, and pennies', () => {
+    const result = makeChange(1.16);
+    expect(result).toEqual("The amount of quarters is 4, the amount of dimes is 1, the amount of nickles is 1, and the amount of pennies is 1");
+  })
 });

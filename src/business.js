@@ -6,24 +6,34 @@ export const makeChange = (money) => {
     return "";
   } else if (money >= .25){
     const quarters = Math.floor(money / .25);
-    const qAmount = quarters * .25;
-    return `The amount of quarters is ${quarters}`.concat(makeChange(money - qAmount));
+    const notQuarters = quarters * .25;
+    const qAmount = Math.round(notQuarters * 100) / 100;
+    const newMoney = money - qAmount;
+    return `The amount of quarters is ${quarters}`.concat(makeChange(Math.round(newMoney * 100)/ 100));
   } else if (money >= .10){
     const dimes = Math.floor(money / .10);
-    const dAmount = dimes * .10;
-    console.log(money - dAmount);
-    return  `, the amount of dimes is ${dimes}`.concat(makeChange(money - dAmount));
+    const notDimes = dimes * .10;
+    const dAmount = Math.round(notDimes * 100) / 100;
+    const newerMoney = money - dAmount;
+    return  `, the amount of dimes is ${dimes}`.concat(makeChange(Math.round(newerMoney * 100) / 100));
   } else if (money >= .05){
     const nickles = Math.floor(money / .05);
-    const nAmount = nickles * .05;
-    return `, the amount of nickles is ${nickles}`.concat(makeChange(money - nAmount));
-  } else if (money >= .01){
+    const notNickles = nickles * .05;
+    const nAmount = Math.round(notNickles * 100) / 100;
+    const newererMoney = money - nAmount;
+    console.log(newererMoney);
+    return `, the amount of nickles is ${nickles}`.concat(makeChange(Math.round(newererMoney * 100) / 100));
+  } else {
     const pennies = Math.floor(money / .01);
-    const pAmount = pennies * .01;
-    return  `, the amount of pennies is ${pennies}`;
+    const notPennies = pennies * .01;
+    const pAmount = Math.round(notPennies * 100) / 100;
+    const newerererMoney = money - pAmount;
+    return  `, and the amount of pennies is ${pennies}`.concat(makeChange(Math.round(newerererMoney * 100) /100));
   }
 }
 
+// var discount = Math.round((100 - (price / listprice) * 100) * 100) / 100;
+// Math.round(num * 100) / 100
 // Expected: "The amount of quarters is 4, the amount of dimes is 1"
 // Received: "The amount of quarters is 4the amount of dimes is 1,undefined"
 
