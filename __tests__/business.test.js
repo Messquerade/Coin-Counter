@@ -1,9 +1,9 @@
-import HelloWorld from "./../src/business";
+import makeChange from "./../src/business";
 
-describe('HelloWorld', () => {
+describe('makeChange', () => {
 
-  test('should return "Hello World"', () => {
-    let message = HelloWorld();
-    expect(message).toEqual("Hello World");
+  test('should return if parameter is not a number', () => {
+    const result = makeChange("hi");
+    expect(result).toEqual();
   });
 });
