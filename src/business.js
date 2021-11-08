@@ -1,10 +1,40 @@
-export default function makeChange(money) {
+export const makeChange = (money) => {
   if(isNaN(money)){
     return;
   }
-  return money;
+  if (money === 0.00){
+    return "";
+  } else if (money >= .25){
+    const quarters = Math.floor(money / .25);
+    const qAmount = quarters * .25;
+    return `The amount of quarters is ${quarters}`.concat(makeChange(money - qAmount));
+  } else if (money >= .10){
+    const dimes = Math.floor(money / .10);
+    const dAmount = dimes * .10;
+    return  `the amount of dimes is ${dimes},`.concat(makeChange(money - dAmount));
+  } else if (money >= .05){
+    const nickles = Math.floor(money / .05);
+    const nAmount = nickles * .05;
+    return `the amount of nickles is ${nickles},`.concat(makeChange(money - nAmount));
+  } else if (money >= .01){
+    const pennies = Math.floor(money / .01);
+    const pAmount = pennies * .01;
+    return  `the amount of pennies is ${pennies}`;
+  }
 }
 
+// const incrementCounter = (counter) => {
+//   // This is the termination condition.
+//   if (isNaN(counter)) {
+//     return;
+//   }
+//   if (counter >= 3) {
+//     return counter;
+//   } else {
+//     console.log(counter);
+//     return incrementCounter(counter + 1);
+//   }
+// }
 
 
 // we start with a function that will take the money as a float as it's argument
