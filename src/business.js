@@ -21,7 +21,6 @@ export const makeChange = (money) => {
     const notNickles = nickles * .05;
     const nAmount = Math.round(notNickles * 100) / 100;
     const newererMoney = money - nAmount;
-    console.log(newererMoney);
     return `, the amount of nickles is ${nickles}`.concat(makeChange(Math.round(newererMoney * 100) / 100));
   } else {
     const pennies = Math.floor(money / .01);
@@ -31,6 +30,35 @@ export const makeChange = (money) => {
     return  `, and the amount of pennies is ${pennies}`.concat(makeChange(Math.round(newerererMoney * 100) /100));
   }
 }
+
+export function makeChangeAgain(money) {
+  if(money >= .25){
+    const quarters = Math.floor(money / .25);
+    return function(quarters){
+      const moneyLeft = money - (quarters * .25);
+      if(moneyLeft >= .10){
+        const dimes = Math.floor(moneyLeft /.10);
+        return function(dimes){
+          const moneyNowLeft = moneyLeft - (dimes * .10);
+          if(moneyNowLeft >= .05){
+            const nickles = Math.floor(moneyNowLeft / .05);
+            return function(nickles){
+              const finalMoney = moneyNowLeft - (nickles * .05);
+              if(finalMoney >= .01){
+                const pennies = Math.floor(finalMoney / .01);
+                return function(pennies){
+                  return `The amount of quarters is ${quarters}, the amount of dimes is ${dimes}, the amount of nickles is ${nickles}, and the amount of pennies is ${pennies}`;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
 
 // var discount = Math.round((100 - (price / listprice) * 100) * 100) / 100;
 // Math.round(num * 100) / 100
