@@ -36,22 +36,32 @@ describe('makeChange', () => {
 
 describe('makeChangeAgain', () => {
   test('should return the number of quarters', () => {
-    const result = makeChange(1.00);
+    const result = makeChangeAgain(1.00);
     expect(result).toEqual("The amount of quarters is 4");
   })
 
-  test('should return the number of quarters and dimes', () => {
-    const result = makeChange(1.10);
-    expect(result).toEqual("The amount of quarters is 4, the amount of dimes is 1")
-  })
+  // test('should return the number of quarters and dimes', () => {
+  //   const result = makeChangeAgain(1.10);
+  //   expect(result).toEqual("The amount of quarters is 4, the amount of dimes is 1")
+  // })
 
-  test('should return the number of quarters, dimes, and nickles', () => {
-    const result = makeChange(1.15);
-    expect(result).toEqual("The amount of quarters is 4, the amount of dimes is 1, the amount of nickles is 1");
-  })
+  // test('should return the number of quarters, dimes, and nickles', () => {
+  //   const result = makeChangeAgain(1.15);
+  //   expect(result).toEqual("The amount of quarters is 4, the amount of dimes is 1, the amount of nickles is 1");
+  // })
 
-  test('should return the number of quarters, dimes, nickles, and pennies', () => {
-    const result = makeChange(1.16);
-    expect (result).toEqual("The amount of quarters is 4, the amount of dimes is 1, the amount of nickles is 1, and the amount of pennies is 1");
-  })
+  // test('should return the number of quarters, dimes, nickles, and pennies', () => {
+  //   const result = makeChangeAgain(1.16);
+  //   expect (result).toEqual("The amount of quarters is 4, the amount of dimes is 1, the amount of nickles is 1, and the amount of pennies is 1");
+  // })
+
+  // test('should return nothing for 0.00', () => {
+  //   const result = makeChangeAgain(0.00);
+  //   expect(result).toEqual("");
+  // })
+
+  // test('should return the number of pennies', () => {
+  //   const result = makeChangeAgain(0.03);
+  //   expect(result).toEqual(", and the amount of pennies is 3");
+  // })
 });
